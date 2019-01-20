@@ -16,3 +16,4 @@ powerline-go
 
 /.idea/
 .envrc
+dist/
