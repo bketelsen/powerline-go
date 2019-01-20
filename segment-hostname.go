@@ -40,9 +40,12 @@ func segmentHost(p *powerline) {
 		background = p.theme.HostnameBg
 	}
 
-	p.appendSegment("host", segment{
-		content:    hostPrompt,
-		foreground: foreground,
-		background: background,
-	})
+	sshClient, _ := os.LookupEnv("SSH_CLIENT")
+	if sshClient != "" {
+		p.appendSegment("host", segment{
+			content:    hostPrompt,
+			foreground: foreground,
+			background: background,
+		})
+	}
 }
